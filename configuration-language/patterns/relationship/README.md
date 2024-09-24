@@ -109,4 +109,5 @@ Thus, the connection between `a` and `h` can be traced through multiple steps:
 Therefore, the relationship between `a` and `h` is indirect and can be described as linked via entities `c`, `f`, `l`, and `k`.
 
 Here is ChatGPT generated DOT diagram for the indirect relationships:
+
 ![indirect relationships](https://www.plantuml.com/plantuml/png/VS-nIWGn4CRnVf_YAyz2xW4EvGh1qWSGYxbDSXbsDWd9BBAAxox3teKjnEu7uP-PEJUbgiiiW-DhfHBnYky1E1xnmjMFYkg5b7DgaKiR0CBZCowdkqRJQA8krnLCtaHTNwQhQJB5hiaa9hcrso9lnUQJW9FxOoSSD793eQeOAU7YaMTMzGuSiEO5EScAJqgAMo-SflQm_MvNmE6zwIh-oMKBFqxzPJi8X_liVHN-hyA--XdEFhbbbby0)
