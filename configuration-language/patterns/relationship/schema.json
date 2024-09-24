@@ -1,0 +1,40 @@
+{
+  "prompt": [
+    "Using dot lang can you describe relationship between entities (provide only dot code)",
+    "what entities refers entity h, please provide only entites id and nothing else"
+  ],
+  "entities": {
+    "a": {
+      "id": 1,
+      "ref": [
+        2,
+        999
+      ]
+    },
+    "b": {
+      "id": 2
+    },
+    "d": {
+      "id": 16,
+      "ref": [
+        12,
+        67
+      ]
+    },
+    "k": {
+      "id": 67
+    },
+    "h": {
+      "id": 999,
+      "ref": [
+        67,
+        12,
+        2,
+        16
+      ]
+    },
+    "t": {
+      "id": 12
+    }
+  }
+}
