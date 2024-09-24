@@ -1,7 +1,7 @@
 {
   "prompt": [
     "Using dot lang can you describe relationship between entities (provide only dot code)",
-    "what entities refers entity h, please provide only entites id and nothing else"
+    "print all entities on which entity bb refers including indirect entities, please provide only entites id and nothing else"
   ],
   "entities": {
     "a": {
@@ -18,7 +18,8 @@
       "id": 16,
       "ref": [
         12,
-        67
+        67,
+        6579
       ]
     },
     "k": {
@@ -35,6 +36,22 @@
     },
     "t": {
       "id": 12
+    },
+    "z": {
+      "id": 6501
+    },
+    "aa": {
+      "id": 6099
+    },
+    "bb": {
+      "id": 6580,
+      "ref": [
+        6099,
+        999
+      ]
+    },
+    "x": {
+      "id": 3
     }
   }
 }
