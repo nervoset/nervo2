@@ -1,4 +1,4 @@
-### Direct and Transitive Relationships
+## Direct and Transitive Relationships
 It seems that ChatGPT understands the relationship between provided entities.
 By providing a json with entities and [their relationships](direct-relationships.json) and asking the model
 to generate a DOT diagram accordingly:
@@ -9,13 +9,13 @@ to generate a DOT diagram accordingly:
  - the model understands which entity has reference to which entity
  - it seems that model understands [transitive relationships](transitive-relationships.json) as well
 
-### Broken relationships
+## Broken relationships
 Interestingly enough that the model is able to understand broken relationships as well.
 Just take a look at this beautiful explanation and reasoning 
 about relationships in [broken-relationship.json](broken-relationship.json),
 it even provided context for what could be considered broken relationships:
 
-ChatGPT answer:
+#### ChatGPT answer:
 To identify and print a broken relationship or entity, you need to define what constitutes "broken" in terms of relationships between entities. For instance, a broken relationship could mean:
 
 1. **Missing references**: An entity references another entity, but that entity does not exist.
@@ -80,7 +80,7 @@ fn main() {
 }
 ```
 
-### Output:
+#### Output:
 ```
 Entity 'e' has a broken reference to 'z'
 Entity 'd' is unreferenced by any other entity
@@ -92,7 +92,7 @@ Entity 'l' is unreferenced by any other entity
 
 In this example, the Rust program detects a broken reference from entity `E` to `Z` and identifies unreferenced entities.
 
-### Indirect Relationships
+## Indirect Relationships
 ChatGPT can also understand [indirect relationships](indirect-relationships.json):
 
 #### ChatGPT Answer:
