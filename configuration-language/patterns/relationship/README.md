@@ -42,42 +42,7 @@ Let's check the given entities and identify the types of "broken" relationships:
 ### Rust Code Example:
 
 ```rust
-use std::collections::HashMap;
-
-fn main() {
-    // Define the entity relationships
-    let mut entities: HashMap<&str, Vec<&str>> = HashMap::new();
-    entities.insert("a", vec!["b", "c"]);
-    entities.insert("b", vec![]);
-    entities.insert("c", vec!["a", "e"]);
-    entities.insert("d", vec![]);
-    entities.insert("e", vec!["a", "z"]);
-    entities.insert("f", vec![]);
-    entities.insert("g", vec![]);
-    entities.insert("h", vec![]);
-    entities.insert("k", vec!["l"]);
-    entities.insert("l", vec![]);
-
-    // Check for broken references
-    for (entity, refs) in &entities {
-        for reference in refs {
-            if !entities.contains_key(reference) {
-                println!("Entity '{}' has a broken reference to '{}'", entity, reference);
-            }
-        }
-    }
-
-    // Check for unreferenced entities
-    let mut all_references: Vec<&str> = entities.values().flatten().cloned().collect();
-    all_references.sort();
-    all_references.dedup();
-
-    for entity in entities.keys() {
-        if !all_references.contains(&entity) {
-            println!("Entity '{}' is unreferenced by any other entity", entity);
-        }
-    }
-}
+// skipped the code for brevity
 ```
 
 #### Output:
