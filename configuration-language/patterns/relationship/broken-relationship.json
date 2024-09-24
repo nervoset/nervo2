@@ -1,0 +1,46 @@
+{
+  "prompt": [
+    "print the entities that have a relationship with each other"
+  ],
+  "entities": {
+    "a": {
+      "ref": [
+        "b",
+        "c"
+      ]
+    },
+    "b": {
+
+    },
+    "c": {
+      "ref": [
+        "a", "e"
+      ]
+    },
+    "d": {
+
+    },
+    "e": {
+      "ref": [
+        "a", "z"
+      ]
+    },
+    "f": {
+
+    },
+    "g": {
+
+    },
+    "h": {
+
+    },
+    "k": {
+      "ref": [
+        "l"
+      ]
+    },
+    "l": {
+
+    }
+  }
+}
