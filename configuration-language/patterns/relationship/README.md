@@ -111,3 +111,26 @@ Therefore, the relationship between `a` and `h` is indirect and can be described
 Here is ChatGPT generated DOT diagram for the indirect relationships:
 
 ![indirect relationships](https://www.plantuml.com/plantuml/png/VS-nIWGn4CRnVf_YAyz2xW4EvGh1qWSGYxbDSXbsDWd9BBAAxox3teKjnEu7uP-PEJUbgiiiW-DhfHBnYky1E1xnmjMFYkg5b7DgaKiR0CBZCowdkqRJQA8krnLCtaHTNwQhQJB5hiaa9hcrso9lnUQJW9FxOoSSD793eQeOAU7YaMTMzGuSiEO5EScAJqgAMo-SflQm_MvNmE6zwIh-oMKBFqxzPJi8X_liVHN-hyA--XdEFhbbbby0)
+
+## Topological Sorting
+It can do even topological sorting of the entities based on the relationships provided in the [topological-sorting.json](topological-sort.json)
+
+Here is ChatGPT answer:
+
+You can perform a **topological sort** of the graph using a depth-first search (DFS) approach or Kahn's algorithm. 
+Here's an example implementation of topological sorting using DFS in Rust:
+
+```rust
+// skipped the code for brevity
+```
+
+### Explanation:
+1. **Graph structure:** The `Graph` struct stores the adjacency list (directed edges).
+2. **DFS-based Topological Sort:** The `dfs` function recursively visits each node's neighbors before pushing the node onto a stack, which guarantees that the dependencies of a node appear before the node itself.
+3. **Topological Sort Order:** After performing the DFS, we reverse the stack to get the topological order.
+
+### Sample Output:
+Given your graph structure, a possible topological sort result could be:
+```
+Topological Sort: ["e", "z", "a", "b", "c", "d", "k", "g", "h", "l", "f"]
+```

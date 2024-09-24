@@ -1,0 +1,51 @@
+{
+  "prompt": [
+    "make topological sort of the graph and print the result"
+  ],
+  "entities": {
+    "a": {
+      "ref": [
+        "b",
+        "c"
+      ]
+    },
+    "b": {
+    },
+    "c": {
+      "ref": [
+        "d",
+        "f"
+      ]
+    },
+    "d": {
+    },
+    "e": {
+      "ref": [
+        "a",
+        "z"
+      ]
+    },
+    "f": {
+    },
+    "g": {
+      "ref": [
+        "k"
+      ]
+    },
+    "h": {
+        "ref": [
+            "k"
+        ]
+    },
+    "k": {
+      "ref": [
+        "l"
+      ]
+    },
+    "l": {
+      "ref": [
+        "f"
+      ]
+    }
+  }
+}
