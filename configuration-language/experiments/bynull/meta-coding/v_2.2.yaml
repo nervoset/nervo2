@@ -1,0 +1,42 @@
+src:
+  - main:
+      - test.txt: |
+          привет капитоха
+        meta: |
+          Этот файл содержит функцию, которая выводит текст "hi kukuxandr".
+          Был создан на основании второго шага разговора с пользователем.
+          Файл "test.txt" был создан по запросу пользователя.
+          В него был добавлен текст "привет капитоха" в ходе первого шага беседы.
+        history:
+          - "Создан файл test.txt с текстом 'привет капитоха'."
+
+      - lib.rs: |
+          use reqwest;
+          
+          pub fn main() {
+            println!("hi kukuxandr");
+            println!("Добавлен новый println.");
+            download_google_homepage();
+          }
+
+          fn download_google_homepage() {
+            let body = reqwest::blocking::get("https://www.google.com")
+              .and_then(|r| r.text())
+              .unwrap_or_else(|e| {
+                eprintln!("Failed to download: {}", e);
+                String::new()
+              });
+            println!("Google homepage content length: {}", body.len());
+          }
+        history:
+          - "Создан файл lib.rs с функцией main(), которая выводит 'hi kukuxandr'."
+          - "Файл lib.rs содержит инструкции для компиляции и запуска кода на языке Rust."
+          - "Добавлен новый println в функцию main."
+          - "Добавлен новый println с текстом 'Добавлен новый println.'"
+          - "Добавлена функция для скачивания главной страницы Google с помощью библиотеки reqwest."
+
+meta_conversation:
+  step_1: |
+    Пользователь попросил добавить файл test.txt с текстом "привет капитоха".
+  step_2: |
+    Пользователь попросил добавить файл lib.rs с кодом на языке Rust, который выводит "hi kukuxandr".

@@ -1,0 +1,78 @@
+oh_my_turbo:
+  meta:
+    instruction_1: |
+      Эта структура директории "oh_my_turbo" была создана в процессе общения между пользователем и ChatGPT.
+      Пользователь задал команду для эмуляции работы с файловой системой на основе YAML-документа.
+      Первоначальный запрос пользователя звучал так: 
+      "Давай съэмулируем как-будто мы работаем в директории вместе, 
+       структура нашей директории будет соответствовать YAML-файлу, 
+       который я буду тебе посылать, а ты будешь добавлять или изменять в этом YAML-файле любые поля, 
+       тем же способом, как если бы ты изменял их в реальной папке."
+      
+      В ходе диалога файлы и папки создавались и редактировались пошагово через текстовые запросы.
+      Этот YAML-документ представляет собой описание файловой структуры и содержимого, 
+      включая метаинформацию о каждом изменении и команду, которая привела к изменению или добавлению.
+
+    instruction_2: |
+      **Условие:** Этот YAML-документ необходимо анализировать как запрос на изменение. 
+      1. В комментариях в файлах Rust содержатся инструкции о том, что необходимо сделать, в виде, например:
+         - ${command: добавить еще один println в main функцию}
+         - если команда не найдена, то делать что либо строго запрещается. Просто напечатай текст: изменения не требуются
+      2. Эти инструкции необходимо выполнить и перенести эти инструкции из комментариев в раздел history в конец.
+
+  #${command: добавь Dockerfile который сделает билд программы и позволит запускать ее из докера}
+  src:
+    - main:
+        - Cargo.toml: |
+            [package]
+            name = "oh_my_turbo"
+            version = "0.1.0"
+            edition = "2021"
+            
+            [dependencies]
+            thiserror = "1.0"
+            serde = { version = "1.0", features = ["derive"] }
+            anyhow = "1.0"
+            reqwest = { version = "0.11", features = ["json"] }
+          history:
+            - "Создан новый Rust проект с помощью 'cargo new'."
+            - "Добавлены зависимости thiserror, serde, anyhow, и reqwest в Cargo.toml."
+
+        - lib.rs: |
+            use anyhow::Result;
+            use reqwest;
+            use thiserror::Error;
+  
+            #[derive(Error, Debug)]
+            #[error("HTTP error")]
+            struct HttpError(#[from] reqwest::Error);
+  
+            pub async fn download_google_homepage() -> Result<String, HttpError> {
+                let body = reqwest::get("https://www.google.com")
+                    .await?
+                    .text()
+                    .await?;
+                Ok(body)
+            }
+  
+            pub fn main() -> Result<()> {
+                println!("hi kukuxandr");
+                // Блокирующий вызов для простоты примера. В реальном приложении используйте tokio::main или similar для асинхронных вызовов.
+                let homepage = futures::executor::block_on(download_google_homepage())?;
+                println!("Google homepage content: {}", homepage);
+                Ok(())
+            }
+          history:
+            - "Создан файл lib.rs с функцией main(), которая выводит 'hi kukuxandr'."
+            - "Файл lib.rs содержит инструкции для компиляции и запуска кода на языке Rust."
+            - "Добавлен новый println в функцию main."
+            - "Добавлена функция download_google_homepage для скачивания главной страницы Google с использованием библиотеки reqwest."
+
+    - Dockerfile: |
+        FROM rust:latest
+        WORKDIR /usr/src/oh_my_turbo
+        COPY . .
+        RUN cargo build --release
+        CMD ["./target/release/oh_my_turbo"]
+      history:
+        - "Добавлен Dockerfile для сборки и запуска приложения в Docker."
