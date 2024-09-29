@@ -1,0 +1,16 @@
+yaml:
+  instruction: |
+    I am asking you to process this yaml file, which is a series of questions we call them prompts,
+    where each subsequent question adds more details to the previous one, 
+    essentially creating a chain of linked questions. 
+    Your task is to answer each question in sequence, 
+    and then improve or refine the answer based on the additional details provided by the next question.
+    So, you will start by answering the first question, 
+    then combine that answer with the details in the second question to improve the response, 
+    and continue this process until you have worked through the entire chain of questions, refining the answer each time.
+    Please provide only final answer after going through and combining all results together
+
+  prompts:
+    prompt_1: I want you to provide basic implementation of a project called decentralized seed phrase manager
+    prompt_2: The project has to be written on rust
+    prompt_3:
